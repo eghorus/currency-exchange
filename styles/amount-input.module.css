@@ -1,0 +1,19 @@
+.wrapper {
+  width: 100%;
+  max-width: 14rem;
+}
+
+.input {
+  width: 100%;
+  box-shadow: var(--shadow-sm);
+  outline: 2px solid transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1rem;
+  transition: var(--transition);
+}
+
+.input:focus,
+.input:focus-visible {
+  outline-color: var(--color-primary-500);
+}
