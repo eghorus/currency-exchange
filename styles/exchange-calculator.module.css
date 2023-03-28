@@ -5,7 +5,7 @@
   min-height: 18rem;
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-md);
-  padding: 6rem 1.25rem 4rem 1.25rem;
+  padding: 6rem 1.25rem 5rem 1.25rem;
   background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(4px);
 }
@@ -41,6 +41,19 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary-100);
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
 }
 
 @media (min-width: 40rem) {
