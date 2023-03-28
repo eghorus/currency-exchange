@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 48rem;
+  box-shadow: var(--shadow-lg);
+  border-radius: 10px;
+  padding: 4rem 1rem;
+  background-color: whitesmoke;
+}
+
+.menusWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.result {
+  margin-bottom: 1.5rem;
+}
+
+.result > span {
+  color: var(--color-primary-500);
+  font-weight: 600;
+}
