@@ -1,0 +1,74 @@
+.wrapper {
+  position: relative;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.menuButton {
+  display: flex;
+  justify-content: space-between;
+  min-width: 12rem;
+  box-shadow: var(--shadow-sm);
+  outline: 2px solid transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.chevronIcon {
+  display: flex;
+  font-size: 120%;
+}
+
+.menuButton:focus,
+.menuButton:focus-visible {
+  outline-color: var(--color-primary-500);
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0.4rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background-color: white;
+  transition: var(--transition-fast);
+}
+
+.menuOpen {
+  max-height: 12rem;
+  overflow: auto;
+  opacity: 1;
+  border-color: var(--color-border);
+}
+
+.menuItem {
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.menuItem:hover {
+  background-color: var(--color-border);
+}
+
+.disabledMenuItem {
+  pointer-events: none;
+  color: var(--color-border);
+}
