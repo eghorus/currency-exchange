@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MdOutlineExpandLess, MdOutlineExpandMore } from "react-icons/md";
+import { MdOutlineExpandMore } from "react-icons/md";
 import styles from "@/styles/dropdown-menu.module.css";
 import api from "@/utils/api";
 
@@ -47,8 +47,8 @@ const DropdownMenu = ({ label, value, setValue, disabledValue }: DropdownMenuPro
       </label>
       <button id={buttonId} className={styles.menuButton} onClick={toggleMenu}>
         {value}
-        <span className={styles.chevronIcon} tabIndex={-1}>
-          {isMenuOpen ? <MdOutlineExpandLess /> : <MdOutlineExpandMore />}
+        <span className={[styles.chevronIcon, isMenuOpen && styles.chevronIconInverted].join(" ")} tabIndex={-1}>
+          <MdOutlineExpandMore />
         </span>
       </button>
       <ul className={[styles.menu, isMenuOpen && styles.menuOpen].join(" ")}>
