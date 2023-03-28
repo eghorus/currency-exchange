@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/home.module.css";
-import ExchangeCalculator from "@/components/exchange-calc";
+import ExchangeCalculator from "@/components/exchange-calculator";
 
 const inter = Inter({ subsets: ["latin"] });
 

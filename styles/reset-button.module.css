@@ -1,8 +1,9 @@
 .button {
+  margin-top: 1.5rem;
   box-shadow: var(--shadow-sm);
-  border: none;
-  border-radius: 6px;
-  padding: 0.8rem 1rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 2rem;
   background-color: var(--color-primary-500);
   cursor: pointer;
   color: white;

@@ -1,0 +1,8 @@
+.result {
+  margin-top: 1.5rem;
+}
+
+.result > span {
+  color: var(--color-primary-500);
+  font-weight: 600;
+}

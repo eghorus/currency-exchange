@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MdOutlineExpandMore } from "react-icons/md";
+import { BiChevronDown } from "react-icons/bi";
 import styles from "@/styles/dropdown-menu.module.css";
 import api from "@/utils/api";
 
@@ -15,8 +15,8 @@ const DropdownMenu = ({ label, value, setValue, disabledValue }: DropdownMenuPro
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   /* To give the button element a unique id and use it as htmlFor attribute on label */
   const buttonId = `${label}Currency`;
-  /* To determine click event on any element outside this wrapper */
-  const wrapperElRef = useRef<HTMLDivElement>(null);
+  /* To determine click event on any element outside this container */
+  const containerElRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const handleSelectItem = (e: React.BaseSyntheticEvent) => {
@@ -24,15 +24,19 @@ const DropdownMenu = ({ label, value, setValue, disabledValue }: DropdownMenuPro
     setIsMenuOpen(false);
   };
   const handleClickOutside = (e: MouseEvent) => {
-    if (!wrapperElRef.current?.contains(e.target as HTMLElement)) {
+    if (!containerElRef.current?.contains(e.target as HTMLElement)) {
       setIsMenuOpen(false);
     }
   };
 
   useEffect(() => {
     const getCurrencyList = async () => {
-      const res = await api.get("/listquotes");
-      setCurrencyList(res.data);
+      try {
+        const res = await api.get("/listquotes");
+        setCurrencyList(res.data);
+      } catch (error) {
+        window.alert(error);
+      }
     };
     getCurrencyList();
 
@@ -41,17 +45,17 @@ const DropdownMenu = ({ label, value, setValue, disabledValue }: DropdownMenuPro
   }, []);
 
   return (
-    <div className={styles.wrapper} ref={wrapperElRef}>
-      <label htmlFor={buttonId} className={styles.label}>
+    <div className={styles.container} ref={containerElRef}>
+      <label htmlFor={buttonId} className="label">
         {label}
       </label>
       <button id={buttonId} className={styles.menuButton} onClick={toggleMenu}>
         {value}
-        <span className={[styles.chevronIcon, isMenuOpen && styles.chevronIconInverted].join(" ")} tabIndex={-1}>
-          <MdOutlineExpandMore />
+        <span className={[styles.chevronIcon, isMenuOpen && styles.chevronIconInverted].join(" ")}>
+          <BiChevronDown />
         </span>
       </button>
-      <ul className={[styles.menu, isMenuOpen && styles.menuOpen].join(" ")}>
+      <ul className={[styles.menuList, isMenuOpen && styles.menuOpen].join(" ")}>
         {currencyList.map((currency) => (
           <li
             key={currency}
