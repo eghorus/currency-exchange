@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { GiMoneyStack } from "react-icons/gi";
 import styles from "@/styles/exchange-calculator.module.css";
 import AmountInput from "./amount-input";
-import DropdownMenu from "./dropdown-menu";
+import DropdownMenu from "./dropdown-menu/dropdown-menu";
 import SwapButton from "./swap-button";
 import LoadingSpinner from "./loading-spinner";
 import Result from "./result";

@@ -52,7 +52,7 @@
   transition: var(--transition-fast);
 }
 
-.menuOpen {
+.menuListVisible {
   max-height: 10rem;
   overflow: auto;
   opacity: 1;
