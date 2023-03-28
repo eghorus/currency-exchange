@@ -10,6 +10,12 @@ type MenuListProps = {
 
 const MenuList = ({ isDropdownOpen, disabledValue, handleSelectItem }: MenuListProps) => {
   const [currencyList, setCurrencyList] = useState<string[]>([]);
+  const [filter, setFilter] = useState("");
+  const filteredCurrencyList = currencyList.filter((c) => c.toLowerCase().startsWith(filter));
+
+  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilter(e.target.value.toLowerCase());
+  };
 
   useEffect(() => {
     const getCurrencyList = async () => {
@@ -25,7 +31,15 @@ const MenuList = ({ isDropdownOpen, disabledValue, handleSelectItem }: MenuListP
 
   return (
     <ul className={[styles.menuList, isDropdownOpen && styles.menuListVisible].join(" ")}>
-      {currencyList.map((currency) => (
+      <input
+        type="search"
+        placeholder="Search ..."
+        aria-label="Search currencies"
+        className={styles.filterInput}
+        value={filter}
+        onChange={handleFilterChange}
+      />
+      {filteredCurrencyList.map((currency) => (
         <li
           key={currency}
           className={[styles.menuItem, currency === disabledValue && styles.disabledMenuItem].join(" ")}

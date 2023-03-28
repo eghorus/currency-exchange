@@ -5,6 +5,7 @@
 
   --color-border: gainsboro;
   --color-text: #334155;
+  --color-text-light: #606c7c;
   --color-text-disabled: gainsboro;
   --color-gradient: linear-gradient(90deg, hsla(280, 100%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
 
