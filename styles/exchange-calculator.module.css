@@ -1,11 +1,13 @@
 .card {
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
   max-width: 48rem;
   min-height: 18rem;
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-md);
-  padding: 6rem 1.25rem 5rem 1.25rem;
+  padding: 4rem 1.25rem 2rem 1.25rem;
   background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(4px);
 }
@@ -34,6 +36,7 @@
   align-items: center;
   row-gap: 0.5rem;
   max-width: 40rem;
+  width: 100%;
   margin: auto;
 }
 
@@ -44,11 +47,8 @@
 }
 
 .footnote {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
+  align-self: center;
+  margin-top: 2rem;
   border-radius: var(--radius-md);
   padding: 0.5rem 1rem;
   background-color: var(--color-primary-100);
