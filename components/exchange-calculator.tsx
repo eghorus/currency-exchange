@@ -34,7 +34,13 @@ const ExchangeCalculator = () => {
   };
 
   useEffect(() => {
-    if (amount && hasTimeoutElapsed && fromCurrency !== initialCurrencyVal && toCurrency !== initialCurrencyVal) {
+    /* Fetch the exchange rate only when hasTimeoutElapsed is true and all inputs have values */
+    if (
+      Number(amount) > 0 &&
+      hasTimeoutElapsed &&
+      fromCurrency !== initialCurrencyVal &&
+      toCurrency !== initialCurrencyVal
+    ) {
       const getExchange = async () => {
         try {
           setIsLoading(true);
@@ -55,7 +61,6 @@ const ExchangeCalculator = () => {
       <div className={styles.logo}>
         <GiMoneyStack />
       </div>
-
       <div className={styles.content}>
         <div className={styles.inputsContainer}>
           <AmountInput value={amount} setValue={setAmount} setHasTimeoutElapsed={setHasTimeoutElapsed} />
@@ -63,12 +68,11 @@ const ExchangeCalculator = () => {
           {isLoading ? <LoadingSpinner /> : <SwapButton onClick={swapCurrencies} />}
           <DropdownMenu label="to" value={toCurrency} setValue={setToCurrency} disabledValue={fromCurrency} />
         </div>
-
         {/* Show the result text and the reset button only when there is a result received from the API */}
         {exchangeResult && (
           <>
-            {/* Hide the result text when the user get a result then start changing the amount input */}
-            {hasTimeoutElapsed && (
+            {/* Hide the result text when the user get a result then start changing the amount input or when amount is 0 */}
+            {Number(amount) > 0 && hasTimeoutElapsed && (
               <Result
                 amount={amount}
                 fromCurrency={fromCurrency}
